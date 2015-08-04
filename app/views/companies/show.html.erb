@@ -1,36 +1,32 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @company.name %>
-</p>
-
-<p>
-  <strong>Picture:</strong>
-  <%= @company.picture %>
-</p>
-
-<p>
-  <strong>Address:</strong>
-  <%= @company.address %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @company.description %>
-</p>
-
-<%= link_to 'Write a review', new_company_review_path(@company) %><br>
+<div class="col-lg-6">
+<h3><%= @company.name %></h3>
+  <p>
+    <strong>Picture:</strong>
+    <%= @company.picture %>
+  </p>
+  <p>
+    <strong>Address:</strong>
+    <%= @company.address %>
+  </p>
+  <p>
+    <strong>Description:</strong>
+    <%= @company.description %>
+  </p>
+</div>
+<div class="col-lg-6">
+<%= link_to 'Write a review', new_company_review_path(@company), class: "btn btn-primary" %><br><br>
 
 <% @company.reviews.each do |review| %>
-  <div class="stars" data-score= <%= review.rate %> ></div><br>
-  <%= review.content %>
-  <br>
+  </b>Rate:</b><div class="stars" data-score= <%= review.rate %> ></div>
+  </b>Comment:</b><br><%= review.content %>
+  <br><br>
 <% end %>
 
 <%= link_to 'Edit', edit_company_path(@company) %> |
 <%= link_to 'Back', companies_path %>
-
+</div>
 <script>
 $('.stars').raty({
   path:'https://s3.amazonaws.com/yelpdemo/stars',
