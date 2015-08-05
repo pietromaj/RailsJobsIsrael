@@ -26,7 +26,7 @@ class ReviewsController < ApplicationController
   def create
     @review = Review.new(review_params)
     @review.company_id = @company.id
-
+    @review.user_id = current_user.id
     respond_to do |format|
       if @review.save
         format.html { redirect_to @company, notice: 'Review was successfully created.' }

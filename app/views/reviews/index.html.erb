@@ -22,7 +22,7 @@
         <td><%= review.user_id %></td>
         <td><%= link_to 'Show', company_reviews_path %></td>
         <td><%= link_to 'Edit', '#' %></td>
-        <td><%= link_to 'Destroy', company_review_path, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Destroy', company_review_path(@company), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

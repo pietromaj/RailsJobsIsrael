@@ -10,6 +10,12 @@ class CompaniesController < ApplicationController
   # GET /companies/1
   # GET /companies/1.json
   def show
+    @reviews = Review.where(company_id: @company.id)
+    if @reviews.blank?
+      @avg_rating = 0
+    else
+      @avg_rating = @reviews.average(:rate).round(2)
+    end
   end
 
   # GET /companies/new
