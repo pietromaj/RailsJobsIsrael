@@ -1,10 +1,13 @@
 class CompaniesController < ApplicationController
   before_action :set_company, only: [:show, :edit, :update, :destroy]
-
   # GET /companies
   # GET /companies.json
   def index
-    @companies = Company.all
+    
+    @companies = Company.joins(:reviews)
+  .select("companies.id, companies.*, avg(reviews.rate) as average_raiting")
+  .group("companies.id")
+  .order("average_raiting DESC")
   end
 
   # GET /companies/1

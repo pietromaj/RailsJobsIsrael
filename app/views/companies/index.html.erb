@@ -1,33 +1,42 @@
 
 
 <h1>Listing Companies</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Picture</th>
-      <th>Address</th>
-      <th>Description</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
+<hr>
     <% @companies.each do |company| %>
-      <tr>
-        <td><%= company.name %></td>
-        <td><%= company.picture %></td>
-        <td><%= company.address %></td>
-        <td><%= company.description %></td>
-        <td><%= link_to 'Show', company %></td>
-        <td><%= link_to 'Edit', edit_company_path(company) %></td>
-        <td><%= link_to 'Destroy', company, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+    
+    <div class=" col-xs-12 col-md-4 col-lg-3">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+        <h4><%= company.name %></h4>
+        </div>
+        <div class="panel-body">
+        <%= image_tag company.picture_url, class: "logo" %><br><br>
+        <div class="stars" data-score= <%= company.reviews.average(:rate).round(2) %> ></div>
+        <%= company.address %><br>
+        <%= company.description %>
+        </div>
+        <div class="panel-footer">
+        <%= link_to 'Show', company %>
+        <%= link_to 'Edit', edit_company_path(company) %>
+        <%= link_to 'Destroy', company, method: :delete, data: { confirm: 'Are you sure?' } %>
+      </div>
+      </div>
+      </div>
     <% end %>
   </tbody>
 </table>
 
-<br>
-
+<br><br>
+<div>
 <%= link_to 'New Company', new_company_path %>
+</div>
+
+<script>
+$('.stars').raty({
+  path:'https://s3.amazonaws.com/yelpdemo/stars',
+  readOnly: true,
+  score: function() {
+    return $(this).attr('data-score');
+  }
+});
+</script>
