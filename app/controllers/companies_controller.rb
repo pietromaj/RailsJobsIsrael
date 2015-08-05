@@ -5,9 +5,9 @@ class CompaniesController < ApplicationController
   def index
     
     @companies = Company.joins(:reviews)
-  .select("companies.id, companies.*, avg(reviews.rate) as average_raiting")
+  .select("companies.id, companies.*, avg(reviews.rate) as average_raiting, count(reviews.id) as number_of_reviews")
   .group("companies.id")
-  .order("average_raiting DESC")
+  .order("average_raiting DESC, number_of_reviews DESC")
   end
 
   # GET /companies/1
