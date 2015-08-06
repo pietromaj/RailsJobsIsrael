@@ -2,30 +2,31 @@
 
 <h1>Listing Companies</h1>
 <hr>
+
     <% @companies.each do |company| %>
     
     <div class=" col-xs-12 col-md-4 col-lg-3">
       <div class="panel panel-default">
         <div class="panel-heading">
-        <h4><%= company.name %></h4>
+        <h4><%= link_to company.name, "/companies/#{company.permalink}" %></h4>
         </div>
         <div class="panel-body">
         <%= image_tag company.picture_url, class: "logo" %><br><br>
-        <div class="stars" data-score= <%= company.reviews.average(:rate).round(2) %> ></div><%=  pluralize(company.reviews.count, ' Review')%><br>
+        <% if company.reviews.blank? %>
+          <div class="stars" data-score=0 ></div>0 Review<br>
+        <% else %>
+          <div class="stars" data-score= <%= company.reviews.average(:rate).round(2) %> ></div><%=  pluralize(company.reviews.count, ' Review')%><br>
+        <% end %>
         <%= company.address %><br>
         <%= company.description %>
         </div>
         <div class="panel-footer">
-        <%= link_to 'Show', company %>
-        <%= link_to 'Edit', edit_company_path(company) %>
-        <%= link_to 'Destroy', company, method: :delete, data: { confirm: 'Are you sure?' } %>
+        <!-- %= link_to 'Edit', edit_company_path(company) %-->
+        <!-- %= link_to 'Destroy', company, method: :delete, data: { confirm: 'Are you sure?' } %-->
       </div>
       </div>
       </div>
     <% end %>
-  </tbody>
-</table>
-
 <br><br>
 <div>
 <%= link_to 'New Company', new_company_path %>

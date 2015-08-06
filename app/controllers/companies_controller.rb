@@ -3,11 +3,10 @@ class CompaniesController < ApplicationController
   # GET /companies
   # GET /companies.json
   def index
-    
-    @companies = Company.joins(:reviews)
-  .select("companies.id, companies.*, avg(reviews.rate) as average_raiting, count(reviews.id) as number_of_reviews")
-  .group("companies.id")
-  .order("average_raiting DESC, number_of_reviews DESC")
+    @companies = Company.joins("LEFT OUTER JOIN reviews ON reviews.company_id = companies.id")
+    .select("companies.id, companies.*, avg(reviews.rate) as average_raiting, count(reviews.id) as number_of_reviews")
+    .group("companies.id")
+    .order("average_raiting DESC, number_of_reviews DESC")
   end
 
   # GET /companies/1
@@ -34,7 +33,6 @@ class CompaniesController < ApplicationController
   # POST /companies.json
   def create
     @company = Company.new(company_params)
-
     respond_to do |format|
       if @company.save
         format.html { redirect_to @company, notice: 'Company was successfully created.' }
@@ -73,7 +71,7 @@ class CompaniesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_company
-      @company = Company.find(params[:id])
+      @company = Company.find_by_permalink(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

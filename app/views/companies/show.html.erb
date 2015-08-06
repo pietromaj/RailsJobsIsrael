@@ -1,7 +1,7 @@
 
 
 <div class="col-lg-4">
-    <%= link_to 'Write a review', new_company_review_path(@company), class: "btn btn-primary" %><br><br>
+    <%= link_to 'Write a review', new_company_review_path(@company.id), class: "btn btn-primary" %><br><br>
   
   <% @company.reviews.each do |review| %>
     </b>Rate:</b><div class="stars" data-score= <%= review.rate %> ></div>
