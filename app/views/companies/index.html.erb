@@ -1,15 +1,17 @@
 
 
-<h1>Listing Companies</h1>
-<hr>
+<h1 class="title">Top Companies</h1>
+<hr class="style-one">
 
     <% @companies.each do |company| %>
     
     <div class=" col-xs-12 col-md-4 col-lg-3">
       <div class="panel panel-default">
-        <div class="panel-heading">
-        <h4><%= link_to company.name, "/companies/#{company.permalink}" %></h4>
+        <%= link_to "/companies/#{company.permalink}" do %>
+        <div class="panel-heading company">
+        <h4><%= company.name %></h4>
         </div>
+        <% end %>
         <div class="panel-body">
         <%= image_tag company.picture_url, class: "logo" %><br><br>
         <% if company.reviews.blank? %>
