@@ -1,5 +1,8 @@
 class CompaniesController < ApplicationController
   before_action :set_company, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, only: [:new, :edit, :update, :destroy]
+  before_action :check_admin, only: [:new, :edit, :update, :destroy]
+
   # GET /companies
   # GET /companies.json
   def index
@@ -77,5 +80,11 @@ class CompaniesController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def company_params
       params.require(:company).permit(:name, :picture, :address, :description)
+    end
+    
+    def check_admin
+      unless current_user.admin == true
+        redirect_to root_path, alert: "Bad, bad user! You don't have permission to do that!"
+      end
     end
 end

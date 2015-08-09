@@ -29,10 +29,11 @@
       </div>
     <% end %>
 <br><br>
+<% if user_signed_in? && current_user.admin? %>
 <div>
 <%= link_to 'New Company', new_company_path %>
 </div>
-
+<% end %>
 <script>
 $('.stars').raty({
   path:'https://s3.amazonaws.com/yelpdemo/stars',
