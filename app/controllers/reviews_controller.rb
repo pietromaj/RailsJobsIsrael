@@ -45,10 +45,10 @@ class ReviewsController < ApplicationController
   def update
     respond_to do |format|
       if @review.update(review_params)
-        format.html { redirect_to @review, notice: 'Review was successfully updated.' }
+        format.html { redirect_to "/companies/#{params[:company_id]}", notice: 'Review was successfully updated.' }
         format.json { render :show, status: :ok, location: @review }
       else
-        format.html { render :edit }
+        format.html { render "/companies/#{params[:company_id]}", notice: 'Oops, something went wrong!!' }
         format.json { render json: @review.errors, status: :unprocessable_entity }
       end
     end

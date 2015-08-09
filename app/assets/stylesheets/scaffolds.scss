@@ -9,7 +9,11 @@ body {
   //font-family: verdana, arial, helvetica, sans-serif;
   font-size: 15px;
   line-height: 18px;
+  height: 100%;
 }
+
+
+
 
 .btn-review{
   border-radius: 0;
@@ -51,6 +55,16 @@ h4.title2{
   float: right;
 }
 
+.footer{
+  width: 100%;
+  height: 200px;
+  color: #555;
+  background-color: #ddd;
+  border-top: 5px solid #428bca;
+}
+
+
+
 
 hr.style-one {
     border: 0;
@@ -81,6 +95,18 @@ pre {
   padding: 20px;
   width: 400px;
   text-align: center;
+}
+
+.social-button{
+  height: 80px;
+  width: 80px;
+  background-color: #f00;
+}
+
+
+ul.social-list{
+  li { display:inline }
+  div { display:inline }
 }
 
 .stars{
@@ -155,4 +181,30 @@ div {
 .logo{
   height: 100px;
   width: 100px;
+}
+
+html,
+body {
+  height: 100%;
+  /* The html and body elements cannot have any padding or margin. */
+}
+
+/* Wrapper for page content to push down footer */
+#wrap {
+  min-height: 100%;
+  height: auto;
+  /* Negative indent footer by its height */
+  margin: 0 auto -200px;
+  /* Pad bottom by footer height */
+  padding: 0 0 200px;
+}
+
+/* Set the fixed height of the footer here */
+#footer {
+  height: 200px;
+  background-color: #f5f5f5;
+}
+
+.show-space{
+  margin-bottom: 120px;
 }

@@ -11,12 +11,19 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
+   <!-- Wrap all page content here -->
+    <div id="wrap">
 <%= render 'layouts/header' %>
-<div class="container">
-  <p class="notice"><%= notice %></p>
-  <p class="alert"><%= alert %></p>
-<%= yield %>
-</div>
+      <!-- Begin page content -->
+      <div class="container">
+        <p class="notice"><%= notice %></p>
+          <p class="alert"><%= alert %></p>
+        <%= yield %>
+        </div>
+    </div>
+    <div id="footer">
+        <%= render 'layouts/footer' %>
+    </div>
+
 </body>
 </html>
