@@ -6,7 +6,7 @@ class CompaniesController < ApplicationController
     @companies = Company.joins("LEFT OUTER JOIN reviews ON reviews.company_id = companies.id")
     .select("companies.id, companies.*, avg(reviews.rate) as average_raiting, count(reviews.id) as number_of_reviews")
     .group("companies.id")
-    .order("average_raiting DESC, number_of_reviews DESC").limit(4)
+    .order("average_raiting DESC, number_of_reviews DESC").limit(8)
   end
 
   # GET /companies/1
