@@ -15,6 +15,11 @@ class CompaniesController < ApplicationController
   # GET /companies/1
   # GET /companies/1.json
   def show
+    if user_signed_in?
+    @already_reviewed = Review.where(user_id: current_user.id, company_id: @company.id).presence
+  else
+    @already_reviewed = false
+  end
     @reviews = Review.where(company_id: @company.id)
     if @reviews.blank?
       @avg_rating = 0
