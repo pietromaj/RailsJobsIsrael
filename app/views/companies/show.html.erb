@@ -1,7 +1,27 @@
 
-
 <div class="col-lg-4">
-    <%= link_to 'Write a review', new_company_review_path(@company.id), class: "btn btn-primary" %><br><br>
+  <%= image_tag @company.picture_url %><br>
+  
+    <h1 class="title"><%= @company.name %></h1>
+     <p>
+       <div class="stars" data-score= <%= @avg_rating %> ></div><br>
+      <strong>Address:</strong>
+      <%= @company.address %>
+    </p>
+    
+    
+      <strong>Description:</strong>
+      <%= @company.description %>
+</div>
+<div class="col-lg-8">
+   <div style='width: 800px;'>
+    <div id="map" style='width: 700px; height: 400px;'></div>
+  </div>
+  <br>
+  </div>
+<div class="col-lg-12">
+  <hr class="style-one">
+    <%= link_to 'Write a review', new_company_review_path(@company.id), class: "btn btn-primary btn-review" %><br><br>
   
   <% @company.reviews.each do |review| %>
     </b>Rate:</b><div class="stars" data-score= <%= review.rate %> ></div>
@@ -12,24 +32,7 @@
   <%= link_to 'Edit', edit_company_path(@company) %> |
   <%= link_to 'Back', companies_path %>
 </div>
-<div class="col-lg-8">
-  <%= image_tag @company.picture_url %><br>
-  <h3><%= @company.name %></h3>
-  <div class="stars" data-score= <%= @avg_rating %> ></div>
-    
-    
-    <p>
-      <strong>Address:</strong>
-      <%= @company.address %>
-    </p>
-    <div style='width: 800px;'>
-    <div id="map" style='width: 700px; height: 400px;'></div>
-  </div>
-    <p>
-      <strong>Description:</strong>
-      <%= @company.description %>
-    </p>
-</div>
+
 <script>
 $('.stars').raty({
   path:'https://s3.amazonaws.com/yelpdemo/stars',
@@ -41,18 +44,13 @@ $('.stars').raty({
 
 
 handler = Gmaps.build('Google');
-handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
-  markers = handler.addMarkers([
-    {
-      "lat": 0,
-      "lng": 0,
-      "picture": {
-        "url": "https://addons.cdn.mozilla.net/img/uploads/addon_icons/13/13028-64.png",
-        "width":  36,
-        "height": 36
-      },
-      "infowindow": "hello!"
-    }
+handler.buildMap({ 
+  provider: {
+      zoom:      15,
+      center:    new google.maps.LatLng(32.07, 34.77),
+}, internal: {id: 'map'}}, function(){
+ var markers = handler.addMarkers([
+    { lat: 32.07, lng: 34.77}
   ]);
   handler.bounds.extendWith(markers);
   handler.fitMapToBounds();

@@ -5,15 +5,41 @@
 body {
   background-color: #fff;
   color: #333;
-  font-family: verdana, arial, helvetica, sans-serif;
-  font-size: 13px;
+  font-family: 'Archivo Narrow', sans-serif;
+  //font-family: verdana, arial, helvetica, sans-serif;
+  font-size: 15px;
   line-height: 18px;
+}
+
+.btn-review{
+  border-radius: 0;
+  border: 2px solid #0091ee;
+  color: #0091ee;
+  background-color: transparent;
+  //font-weight: bold;
+  font-size: 18px;
+  &:hover{
+    background-color: #0091ee;
+    color: white;
+    border: 2px solid #0091ee;
+  }
 }
 
 h1.title{
   font-family: 'Poiret One', cursive;
   color: #777;
   font-size: 45px;
+}
+
+h4.title2{
+  font-family: 'Poiret One', cursive;
+  color: #333;
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.center{
+  text-align: center;
 }
 
 hr.style-one {
@@ -37,6 +63,10 @@ pre {
 
 .panel{
   box-shadow: 1px 1px #ccc;
+}
+
+.stars{
+  margin-bottom: 10px;
 }
 
 .company{
