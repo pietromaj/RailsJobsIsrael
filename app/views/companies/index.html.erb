@@ -5,21 +5,21 @@
 <br>
 
     <% @companies.each do |company| %>
-    
+    <%= link_to "/companies/#{company.permalink}" do %>
     <div class=" col-xs-12 col-md-4 col-lg-3">
-      <div class="panel panel-default">
-        <%= link_to "/companies/#{company.permalink}" do %>
-        <div class="panel-heading company">
+      <div class="panel panel-default" id="panel-company">
+        <div class="panel-heading" id="company">
         <h4 class="title2"><%= company.name %></h4>
         </div>
-        <% end %>
         <div class="panel-body center">
+          
         <%= image_tag company.picture_url, class: "logo" %><br><br>
         <% if company.reviews.blank? %>
           <div class="stars" data-score=0 ></div>0 Review<br>
         <% else %>
           <div class="stars" data-score= <%= company.reviews.average(:rate).round(2) %> ></div><%=  pluralize(company.reviews.count, ' Review')%><br>
         <% end %>
+      
         </div>
         <div class="panel-footer">
         <!-- %= link_to 'Edit', edit_company_path(company) %-->
@@ -27,6 +27,7 @@
       </div>
       </div>
       </div>
+      <% end %>
     <% end %>
 <br><br>
 <% if user_signed_in? && current_user.admin? %>
