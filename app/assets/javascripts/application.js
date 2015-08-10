@@ -12,8 +12,36 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery-ui
 //= require bootstrap-sprockets
 //= require underscore-min
 //= require gmaps/google
 //= require turbolinks
 //= require_tree .
+
+myVar = null;
+function myFunction() {
+  clearTimeout(myVar);
+  myVar = setTimeout(autoCompleteRequest, 1000);
+}
+
+function autoCompleteRequest() {
+  $.ajax({
+    method: "GET",
+    url: "/autocomplete",
+    data: { search: $('#input-box').val() }
+  }).done( function(pietro) {
+    resetAutocomplete(pietro);
+    $("#input-box").autocomplete( "search",$('#input-box').val() );
+  } );
+
+
+}
+
+function resetAutocomplete(availableTags) {
+
+  $("#input-box").autocomplete({
+    source: availableTags
+  });
+
+}

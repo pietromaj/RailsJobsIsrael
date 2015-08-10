@@ -76,6 +76,20 @@ class CompaniesController < ApplicationController
       format.json { head :no_content }
     end
   end
+  
+   def autocomplete_request
+      @company = Company.where("name like '%#{params[:search]}%' ").limit(7)
+  
+      @company = @company[0..6]
+  
+      data = []
+  
+      @company.each do |company|
+        data << "#{company.name}"
+      end
+  
+      render json: data
+    end
 
   private
     # Use callbacks to share common setup or constraints between actions.
@@ -93,4 +107,6 @@ class CompaniesController < ApplicationController
         redirect_to root_path, alert: "Bad, bad user! You don't have permission to do that!"
       end
     end
+    
+   
 end
