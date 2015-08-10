@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
   
 
+  get 'static_pages/hire'
+
+  get 'static_pages/table'
+
   devise_for :users
   
   resources :companies do

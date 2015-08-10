@@ -24,7 +24,9 @@
   <br>
   </div>
 <div class="col-lg-12 show-space">
+    <br>
   <hr class="style-one">
+    <br>
   <% unless @already_reviewed %>
     <%= link_to 'Write a review', new_company_review_path(@company.id), class: "btn btn-primary btn-review" %><br><br>
   <% end %>
