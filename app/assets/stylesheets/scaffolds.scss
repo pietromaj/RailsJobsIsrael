@@ -82,12 +82,11 @@ hr.style-one {
     height: 1px;
     background: #333;
     background-image: linear-gradient(to right, #ccc, #777, #ccc);
+      margin-top: 0px;
 }
 
 
-
 p, ol, ul, td {
-  font-family: verdana, arial, helvetica, sans-serif;
   font-size: 13px;
   line-height: 18px;
 }
@@ -219,3 +218,4 @@ body {
 .show-space{
   margin-bottom: 120px;
 }
+
