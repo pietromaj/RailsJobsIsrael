@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   get 'static_pages/hire'
 
   get 'static_pages/table'
+  
+  get 'static_pages/home'
 
   devise_for :users
   

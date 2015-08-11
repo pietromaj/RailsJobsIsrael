@@ -8,7 +8,8 @@
       <strong>Address:</strong>
       <%= @company.address %>
     </p>
-    
+    <strong>Website:</strong>
+     <%= link_to "#{@company.site}", "http://#{@company.site}" %> <br><br>
     
       <strong>Description:</strong>
       <%= @company.description %>

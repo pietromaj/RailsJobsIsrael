@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150809081601) do
+ActiveRecord::Schema.define(version: 20150811111340) do
 
   create_table "companies", force: :cascade do |t|
     t.string   "name"
@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 20150809081601) do
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.string   "permalink"
+    t.string   "site"
   end
 
   add_index "companies", ["permalink"], name: "index_companies_on_permalink"
