@@ -5,6 +5,7 @@
     <h1 class="title"><%= @company.name %></h1>
      <p>
        <div class="stars" data-score= <%= @avg_rating %> ></div><br>
+
       <strong>Address:</strong>
       <%= @company.address %>
     </p>
@@ -32,15 +33,17 @@
     <%= link_to 'Write a review', new_company_review_path(@company.id), class: "btn btn-primary btn-review" %><br><br>
   <% end %>
   <% @company.reviews.each do |review| %>
+  <div class="review">
     <b>Rate:</b><div class="stars" data-score= <%= review.rate %> ></div>
     <b>Comment:</b>&nbsp
     <% if review.user_id == @user_id %>
     <%= link_to 'Edit', "/companies/#{@company.id}/reviews/#{review.id}/edit" %>
     <% end %>
     <br><%= review.content %>
+    <br> <br>
+    <b>User:</b>&nbsp<%= review.user.email %>, at:&nbsp<%= review.created_at.strftime("%d/%m/%Y") %>
     <br>
-    
-    <br>
+    </div>
   <% end %>
   <% if user_signed_in? && current_user.admin? %>
   <%= link_to 'Edit', edit_company_path(@company) %> |

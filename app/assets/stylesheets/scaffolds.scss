@@ -14,7 +14,6 @@ body {
 
 
 
-
 .btn-review{
   border-radius: 0;
   border: 2px solid #0091ee;
@@ -93,6 +92,8 @@ hr.style-one {
 .navbar-brand{
   font-size: 22px;
 }
+
+
 
 p, ol, ul, td {
   font-size: 13px;
@@ -257,4 +258,10 @@ body {
     background-color: transparent;
     color: #f22;
     display: table;
+}
+
+.review{
+  border-left: 1px solid #428bca;
+  padding-left: 10px;
+  margin-bottom: 25px;
 }
