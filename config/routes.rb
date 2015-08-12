@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   
 
+  resources :positions
+
   get 'static_pages/hire'
 
   get 'static_pages/table'
@@ -11,6 +13,7 @@ Rails.application.routes.draw do
   
   resources :companies do
     resources :reviews
+    resources :positions
   end
 
   match '/autocomplete', to: 'companies#autocomplete_request', via: 'get'
