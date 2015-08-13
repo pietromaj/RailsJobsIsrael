@@ -11,7 +11,7 @@
     </div>
   <% end %>
 
-  <div id="stars"></div>
+  <div id="stars"  data-score=1 ></div>
   <div class="field">
     <%= f.label :content%><br>
     <%= f.text_area :content, cols: 180, rows: 8  %>
@@ -25,6 +25,7 @@
 <script>
 $('#stars').raty({
   path:'https://s3.amazonaws.com/yelpdemo/stars',
+  score: 1,
   scoreName: 'review[rate]'
 });
 </script>

@@ -41,6 +41,13 @@ h4.title2{
   font-weight: bold;
 }
 
+h4.title4{
+  font-family: 'Poiret One', cursive;
+  color: #333;
+  font-size: 21px;
+  font-weight: bold;
+}
+
 .blocks{
   text-align: center;
   height: 200px;
@@ -93,7 +100,9 @@ hr.style-one {
   font-size: 22px;
 }
 
-
+.no-pad{
+  padding-left: 0px;
+}
 
 p, ol, ul, td {
   font-size: 13px;
@@ -209,6 +218,11 @@ div {
   width: 100px;
 }
 
+.logo2{
+  height: 80px;
+  width: 80px;
+}
+
 html,
 body {
   height: 100%;
@@ -281,4 +295,21 @@ hr.style-two {
     border: 0;
     border-bottom: 1px dashed #ccc;
     background: #999;
+}
+
+.banner{
+  background-repeat: no-repeat;
+  background-image: url("http://s17.postimg.org/qc1ja38rj/banner.png");
+  //background-image: url("http://s1.postimg.org/b5gniwwf3/banner.png");
+  //background-color: #FFEFBF;
+  height: 150px;
+  color: white;
+  //border-bottom: 2px solid black;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+
+.title3{
+  padding-top: 20px;
+  font-family: 'Archivo Narrow', sans-serif;
+  font-size: 30px;
 }

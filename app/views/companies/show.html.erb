@@ -34,6 +34,9 @@
     <br>
   <% unless @already_reviewed %>
     <%= link_to 'Write a review', new_company_review_path(@company.id), class: "btn btn-primary btn-review" %><br><br>
+    <div class="review">
+    This company was not already reviewed.<br>Be the first to review!
+    </div>
   <% end %>
   <% @company.reviews.each do |review| %>
   <div class="review">
@@ -61,7 +64,6 @@
       <% @company.positions.each do |position| %>
        <hr class="style-two">
        <strong>Position:</strong>&nbsp<%= position.title %><br> <strong>Description:</strong>&nbsp<%= position.description %><br>
-      
       <% end %>
       
       

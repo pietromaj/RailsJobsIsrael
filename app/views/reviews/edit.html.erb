@@ -2,4 +2,5 @@
 
 <%= render 'form' %>
 
-<%= link_to 'Back', company_path(@company) %>
+<%= link_to 'Back', company_path(@company) %>&nbsp|
+<%= link_to 'Delete your review', "/companies/#{Company.find_by(id: params[:company_id]).permalink}/reviews/#{params[:id]}", :method => :delete %>
