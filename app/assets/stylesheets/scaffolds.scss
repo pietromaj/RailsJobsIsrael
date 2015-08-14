@@ -298,6 +298,7 @@ body {
 
 .no-pad-2{
   padding-right: 0px;
+  margin-bottom: 25px;
 }
 
 .mainmap{
@@ -333,4 +334,9 @@ hr.style-two {
   padding-top: 20px;
   font-family: 'Archivo Narrow', sans-serif;
   font-size: 30px;
+}
+
+#central-map{
+  height: 400px;
+  width: 365px;
 }

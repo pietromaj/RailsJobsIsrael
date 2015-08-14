@@ -34,14 +34,9 @@
 </div>
 <div class="col-lg-4 no-pad-2">
   <br><br><br>
-  <iframe
-    width="365"
-    height="400"
-    frameborder="0" style="border:0"
-    src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBqyniixmOcxfxQjZx2OX2bB-pLJkh05Dc
-      &q=israel" >
-  </iframe>
+  <div id="central-map"></div>
 </div>
+
   
     
     <script>
@@ -52,4 +47,38 @@ $('.stars').raty({
     return $(this).attr('data-score');
   }
 });
+
+
+
+
+
+
+
+var geocoder;
+var map;
+function initMap() {
+  geocoder = new google.maps.Geocoder();
+  map = new google.maps.Map(document.getElementById('central-map'), {
+    center: {lat: 31.481089, lng: 34.879904},
+    zoom: 7
+  });
+  
+  
+  for (var i=0; i<gon.companies.length; ++i) {
+    var address = gon.companies[i].address
+    geocoder.geocode( { 'address': address}, function(results, status) {
+      
+        var marker = new google.maps.Marker({
+            map: map,
+            position: results[0].geometry.location
+        });
+  
+    });
+  }
+
+}
+
+
 </script>
+
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAls9O3jTbNl8R4XnzKKiOzXLA90DVQ_PM&callback=initMap"></script>
