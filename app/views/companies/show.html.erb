@@ -34,6 +34,8 @@
     <br>
   <% unless @already_reviewed %>
     <%= link_to 'Write a review', new_company_review_path(@company.id), class: "btn btn-primary btn-review" %><br><br>
+  <% end %>
+  <% if @reviews.blank? %>
     <div class="review">
     This company was not already reviewed.<br>Be the first to review!
     </div>
