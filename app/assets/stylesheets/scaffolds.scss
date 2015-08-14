@@ -104,6 +104,11 @@ hr.style-one {
   padding-left: 0px;
 }
 
+.no-pad2{
+  padding-left: 0px;
+  padding-right: 50px;
+}
+
 p, ol, ul, td {
   font-size: 13px;
   line-height: 18px;
@@ -289,6 +294,22 @@ body {
   margin-bottom: 35px;
   padding-bottom: 15px;
   
+}
+
+.no-pad-2{
+  padding-right: 0px;
+}
+
+.mainmap{
+  height: 400px;
+  background-color: #eee;
+  right: 15px;
+  top: 15px;
+  line-height: 150%;
+  padding-top: 6px;
+  margin-bottom: 35px;
+  padding-bottom: 15px;
+  border: 10px solid #ccc;
 }
 
 hr.style-two {

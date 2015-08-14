@@ -3,35 +3,46 @@
   <br>
   <h4>Reviews, Salaries, Positions, all you need to know better about the RoR market.</h4>
 </div><br>
-<div class="col-lg-9 no-pad">
-  <br>
-<h1 class="title">Top Companies:</h1><br>
-<% @companies.each do |company| %>
-    <%= link_to "/companies/#{company.permalink}" do %>
-    <div class=" col-xs-12 col-md-4 col-lg-3 no-pad">
-      <div class="panel panel-default" id="panel-company">
-        <div class="panel-heading" id="company">
-        <h4 class="title4"><%= company.name %></h4>
+<div class="col-lg-8 no-pad2">
+    <br>
+  <h1 class="title">Top Companies:</h1><br>
+  <% @companies.each do |company| %>
+      <%= link_to "/companies/#{company.permalink}" do %>
+      <div class=" col-xs-12 col-md-4 col-lg-4 no-pad">
+        <div class="panel panel-default" id="panel-company">
+          <div class="panel-heading" id="company">
+          <h4 class="title4"><%= company.name %></h4>
+          </div>
+          <div class="panel-body center">
+            
+          <%= image_tag company.picture_url, class: "logo2" %><br><br>
+          <% if company.reviews.blank? %>
+            <div class="stars" data-score=0 ></div>0 Review<br>
+          <% else %>
+            <div class="stars" data-score= <%= company.reviews.average(:rate).round(2) %> ></div><%=  pluralize(company.reviews.count, ' Review')%><br>
+          <% end %>
+        
+          </div>
+          <div class="panel-footer">
+          <!-- %= link_to 'Edit', edit_company_path(company) %-->
+          <!-- %= link_to 'Destroy', company, method: :delete, data: { confirm: 'Are you sure?' } %-->
         </div>
-        <div class="panel-body center">
-          
-        <%= image_tag company.picture_url, class: "logo2" %><br><br>
-        <% if company.reviews.blank? %>
-          <div class="stars" data-score=0 ></div>0 Review<br>
-        <% else %>
-          <div class="stars" data-score= <%= company.reviews.average(:rate).round(2) %> ></div><%=  pluralize(company.reviews.count, ' Review')%><br>
-        <% end %>
-      
         </div>
-        <div class="panel-footer">
-        <!-- %= link_to 'Edit', edit_company_path(company) %-->
-        <!-- %= link_to 'Destroy', company, method: :delete, data: { confirm: 'Are you sure?' } %-->
-      </div>
-      </div>
-      </div>
+        </div>
       <% end %>
     <% end %>
-    </div>
+</div>
+<div class="col-lg-4 no-pad-2">
+  <br><br><br>
+  <iframe
+    width="365"
+    height="400"
+    frameborder="0" style="border:0"
+    src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBqyniixmOcxfxQjZx2OX2bB-pLJkh05Dc
+      &q=israel" >
+  </iframe>
+</div>
+  
     
     <script>
 $('.stars').raty({
