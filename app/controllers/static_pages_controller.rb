@@ -10,6 +10,8 @@ class StaticPagesController < ApplicationController
     .group("companies.id")
     .order("average_raiting DESC, number_of_reviews DESC")
     gon.companies = @companies2
+    
+    
   end
   
   def hire
