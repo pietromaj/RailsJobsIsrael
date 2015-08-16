@@ -72,7 +72,7 @@ function initMap() {
         });
          google.maps.event.addListener(marker, 'click', (function(marker, i) {
         return function() {
-          infowindow.setContent( '<b>'+'<%= @companies2.first.name %>'+'</b>');
+          infowindow.setContent( '<b>'+gon.companies[i].name+'</b>');
           infowindow.open(map, marker);
         }
       })(marker, i));
