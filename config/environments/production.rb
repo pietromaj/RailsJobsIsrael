@@ -1,6 +1,6 @@
 Rails.application.configure do
   
-      
+      CarrierWave.configure do |config|
       config.fog_credentials = {
           :provider               => 'AWS',
           :aws_access_key_id      => ENV['AWS_ACCESS_KEY_ID'],
@@ -8,7 +8,7 @@ Rails.application.configure do
           # :region                 => ENV['S3_REGION'] # Change this for different AWS region. Default is 'us-east-1'
       }
       config.fog_directory  = 'railsjobs'
-
+    end
   # Settings specified here will take precedence over those in config/application.rb.
 
   # Code is not reloaded between requests.
