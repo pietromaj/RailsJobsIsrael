@@ -5,5 +5,5 @@ CarrierWave.configure do |config|
       :aws_secret_access_key  => ENV['AWS_SECRET_ACCESS_KEY']
       # :region                 => ENV['S3_REGION'] # Change this for different AWS region. Default is 'us-east-1'
   }
-  config.fog_directory  = railsjobs
+  config.fog_directory  = 'railsjobs'
 end
