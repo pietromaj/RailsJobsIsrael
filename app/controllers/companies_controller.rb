@@ -27,6 +27,7 @@ class CompaniesController < ApplicationController
     else
       @avg_rating = @reviews.average(:rate).round(2)
     end
+    @positions = Position.where(company_id: @company.id)
   end
 
   # GET /companies/new

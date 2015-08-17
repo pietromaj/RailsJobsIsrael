@@ -63,9 +63,9 @@
   
 <div class="col-lg-3 positions">
   <h4>Jobs at <%= @company.name %>:<br></h4>
-  <% if @reviews.blank? %>
+  <% if @positions.blank? %>
     <div><br>
-    There are no positions available.
+    There are no positions available.<br>
     </div>
   <% end %>
       <% @company.positions.each do |position| %>
