@@ -63,6 +63,11 @@
   
 <div class="col-lg-3 positions">
   <h4>Jobs at <%= @company.name %>:<br></h4>
+  <% if @reviews.blank? %>
+    <div><br>
+    There are no positions available.
+    </div>
+  <% end %>
       <% @company.positions.each do |position| %>
        <hr class="style-two">
        <strong>Position:</strong>&nbsp<%= position.title %><br> <strong>Description:</strong>&nbsp<%= position.description %><br>
