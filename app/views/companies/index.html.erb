@@ -19,7 +19,7 @@
         <% else %>
           <div class="stars" data-score= <%= company.reviews.average(:rate).round(2) %> ></div><%=  pluralize(company.reviews.count, ' Review')%><br>
         <% end %>
-        <div><%= company.positions.count %>&nbspPositions<br></div>
+        <div><%= pluralize(company.positions.count, 'Position') %><br></div>
       
         </div>
         <div class="panel-footer">
@@ -31,11 +31,14 @@
       <% end %>
     <% end %>
 <br><br>
+
 <% if user_signed_in? && current_user.admin? %>
 <div>
 <%= link_to 'New Company', new_company_path %>
 </div>
 <% end %>
+<br><br>
+<div class="col-lg-12">Your company is not here? Please&nbsp<a href="mailto:pietro.majowka@gmail.com">contact me!</a></div>
 <script>
 $('.stars').raty({
   path:'https://s3.amazonaws.com/yelpdemo/stars',

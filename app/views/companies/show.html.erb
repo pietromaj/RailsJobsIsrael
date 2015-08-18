@@ -31,6 +31,7 @@
   <hr class="style-one">
   </div>
 <div class="col-lg-8 show-space">
+  <div><h2>Employees reviews:</h2>(<%= pluralize(@company.reviews.count, 'Review') %>)</div>
     <br>
   <% unless @already_reviewed %>
     <%= link_to 'Write a review', new_company_review_path(@company.id), class: "btn btn-primary btn-review" %><br><br>
