@@ -362,3 +362,33 @@ hr.style-two {
 }
   
 }
+
+
+    img.railslogo {
+      filter: url(filters.svg#grayscale); /* Firefox 3.5+ */
+      filter: gray; /* IE5+ */
+      -webkit-filter: grayscale(1); /* Webkit Nightlies & Chrome Canary */
+      -webkit-transition: all .5s ease-in-out;
+    }
+
+    img.railslogo:hover {
+      filter: none;
+      -webkit-filter: grayscale(0);
+    }
+    
+    img.gitlogo {
+      filter: url(filters.svg#grayscale); /* Firefox 3.5+ */
+      filter: gray; /* IE5+ */
+      -webkit-filter: opacity(50%); /* Webkit Nightlies & Chrome Canary */
+      -webkit-transition: all .5s ease-in-out;
+    }
+
+    img.gitlogo:hover {
+      filter: none;
+      -webkit-filter: opacity(100%);
+    }
+
+.alert{
+  color: red;
+  font-weight: bold;
+}
