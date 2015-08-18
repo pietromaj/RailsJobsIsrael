@@ -73,6 +73,7 @@
       <% @company.positions.each do |position| %>
        <hr class="style-two">
        <strong>Position:</strong>&nbsp<%= position.title %><br> <strong>Description:</strong>&nbsp<%= position.description %><br>
+       <br><%= link_to 'Edit position', edit_position_path(position.id) %><br>
       <% end %>
       
       

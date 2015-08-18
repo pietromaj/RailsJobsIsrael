@@ -1,6 +1,8 @@
 class PositionsController < ApplicationController
   before_action :set_position, only: [:show, :edit, :update, :destroy]
   before_action :set_company
+  before_action :authenticate_user!, only: [:new, :edit, :update, :destroy]
+  before_action :check_admin, only: [:new, :edit, :update, :destroy]
   # GET /positions
   # GET /positions.json
   def index
@@ -74,5 +76,11 @@ class PositionsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def position_params
       params.require(:position).permit(:title, :description)
+    end
+    
+    def check_admin
+      unless current_user.admin == true
+        redirect_to root_path, alert: "Bad, bad user! You don't have permission to do that!"
+      end
     end
 end

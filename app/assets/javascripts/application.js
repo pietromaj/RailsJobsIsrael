@@ -15,6 +15,7 @@
 //= require jquery-ui
 //= require bootstrap-sprockets
 //= require underscore-min
+//= require oms.min
 //= require gmaps/google
 //= require turbolinks
 //= require_tree .
