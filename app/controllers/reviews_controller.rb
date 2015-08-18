@@ -34,7 +34,7 @@ class ReviewsController < ApplicationController
         format.html { redirect_to "/companies/#{params[:company_id]}", notice: 'Review was successfully created.' }
         format.json { render :show, status: :created, location: @review }
       else
-        format.html { redirect_to "/companies/#{params[:company_id]}", notice: 'You have already reviewed this company!' }
+        format.html { redirect_to :back, notice: 'Content cannot be blank!' }
         format.json { render json: @review.errors, status: :unprocessable_entity }
       end
     end
