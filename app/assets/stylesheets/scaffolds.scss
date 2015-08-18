@@ -12,7 +12,19 @@ body {
   height: 100%;
 }
 
-
+.btn-contact{
+  border-radius: 0;
+  border: 2px solid #D9432F;
+  color: #D9432F;
+  background-color: transparent;
+  //font-weight: bold;
+  font-size: 18px;
+  &:hover{
+    background-color: #D9432F;
+    color: white;
+    border: 2px solid #D9432F;
+  }
+}
 
 .btn-review{
   border-radius: 0;
@@ -395,4 +407,11 @@ hr.style-two {
 
 .skills2{
   margin-top: 35px;
+}
+
+.fleft{
+  float: left;
+}
+.fright{
+  float: right;
 }
