@@ -6,7 +6,7 @@
 <div class="col-lg-8 no-pad2">
     <br>
   <h1 class="title">Top Companies:</h1><br>
-  <% @companies.limit(3).each do |company| %>
+  <% @companies.first(3).each do |company| %>
       <%= link_to "/companies/#{company.permalink}" do %>
       <div class=" col-xs-12 col-md-4 col-lg-4 no-pad">
         <div class="panel panel-default" id="panel-company">
