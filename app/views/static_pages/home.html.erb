@@ -71,9 +71,9 @@ function initMap() {
   
   function geocodeAddress(address, name, permalink) {
     geocoder.geocode( { 'address': address}, function(results, status) {
-        
-        createMarker(results[0].geometry.location, name, permalink);
-        
+        if ( typeof(results) != "undefined" && results.length > 0){
+          createMarker(results[0].geometry.location, name, permalink);
+        }
     });
   }
   function createMarker(latlng, name, permalink){
