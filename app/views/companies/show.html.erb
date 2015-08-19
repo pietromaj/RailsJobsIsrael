@@ -42,7 +42,7 @@
     This company was not yet been reviewed.<br>Be the first to review!
     </div>
   <% end %>
-  <% @company.reviews.each do |review| %>
+  <% @company.reviews.order('created_at DESC').each do |review| %>
   <div class="review">
     <b>Rate:</b><div class="stars" data-score= <%= review.rate %> ></div>
     <b>Comment:</b>&nbsp
