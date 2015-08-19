@@ -17,7 +17,7 @@
             
           <%= image_tag company.picture_url, class: "logo2" %><br><br>
           <% if company.reviews.blank? %>
-            <div class="stars" data-score=0 ></div>0 Review<br>
+            <div class="stars" data-score=0 ></div>0 Reviews<br>
           <% else %>
             <div class="stars" data-score= <%= company.reviews.average(:rate).round(2) %> ></div><%=  pluralize(company.reviews.count, ' Review')%><br>
           <% end %>
