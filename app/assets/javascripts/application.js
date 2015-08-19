@@ -22,6 +22,9 @@
 
 var i;
 myVar = null;
+
+searchFunction();
+
 function searchFunction() {
   clearTimeout(myVar);
   myVar = setTimeout(autoCompleteRequest, 1000);
