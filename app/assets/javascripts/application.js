@@ -36,7 +36,7 @@ function autoCompleteRequest() {
 }
 
 
-function clicado() {
+function search() {
   i = $.inArray( $("#input-box").val(), gon.conames );
   if (i == -1){
     window.alert('Company not found!');
