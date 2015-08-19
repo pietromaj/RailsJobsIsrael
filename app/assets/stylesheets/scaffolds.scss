@@ -192,10 +192,11 @@ ul.social-list{
 
 a {
   color: #000;
-
-  
   &:hover {
    text-decoration: none;
+  }
+  &:visited{
+    text-decoration: none;
   }
 }
 

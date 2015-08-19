@@ -1,7 +1,7 @@
 
 
 <div class="fleft"><h1 class="title">Top Companies</h1></div>
-<div class="fright"><br><br>Your company is not here? Please&nbsp<a href="mailto:pietro.majowka@gmail.com">contact me!</a></div>
+<div class="fright"><br><br>Your company is not here? Please&nbsp<a href="mailto:pietro.majowka@gmail.com"><b>contact me!</b></a></div>
 <div class="clear"></div>
 <hr class="style-one">
 <br>
@@ -19,7 +19,7 @@
         <% if company.reviews.blank? %>
           <div class="stars" data-score=0 ></div>0 Review<br>
         <% else %>
-          <div class="stars" data-score= <%= company.reviews.average(:rate).round(2) %> ></div><%=  pluralize(company.reviews.count, ' Review')%><br>
+          <div class="stars" data-score= <%= company.reviews.average(:rate).round(2) %> ></div><%= pluralize(company.reviews.count, 'Review')%><br>
         <% end %>
         <div><%= pluralize(company.positions.count, 'Position') %><br></div>
       

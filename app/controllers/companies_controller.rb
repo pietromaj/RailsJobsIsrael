@@ -15,6 +15,7 @@ class CompaniesController < ApplicationController
     
     @companies = @companies1 + @companies2
 
+  
   end
 
   # GET /companies/1

@@ -15,38 +15,35 @@
 //= require jquery-ui
 //= require bootstrap-sprockets
 //= require underscore-min
-//= require oms.min
 //= require gmaps/google
 //= require turbolinks
 //= require_tree .
 
+
+var i;
 myVar = null;
-function myFunction() {
+function searchFunction() {
   clearTimeout(myVar);
   myVar = setTimeout(autoCompleteRequest, 1000);
 }
 
 function autoCompleteRequest() {
-  $.ajax({
-    method: "GET",
-    url: "/autocomplete",
-    data: { search: $('#input-box').val() }
-  }).done( function(pietro) {
-    resetAutocomplete(pietro);
-    $("#input-box").autocomplete( "search",$('#input-box').val() );
-  } );
-
-
-}
-
-function resetAutocomplete(availableTags) {
 
   $("#input-box").autocomplete({
-    source: availableTags
+    source: gon.conames
   });
-
+ 
 }
 
+
+function clicado() {
+  i = $.inArray( $("#input-box").val(), gon.conames );
+  if (i == -1){
+    window.alert('Company not found!');
+   }else{
+   window.location.href = "/companies/" + gon.conperm[i];
+  }
+};
 
 
 
